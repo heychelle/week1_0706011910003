@@ -99,7 +99,7 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
                 mContacts.get(daftar).setName(name);
                 mContacts.get(daftar).setAge(age);
                 mContacts.get(daftar).setAddress(address);
-                Intent intent = new Intent(AddUserActivity.this, MainActivity.class);
+                Intent intent = new Intent(AddUserActivity.this, DetailActivity.class);
                 startActivity(intent);
                 finish();
             }

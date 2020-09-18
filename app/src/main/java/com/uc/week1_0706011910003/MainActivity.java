@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.uc.week1_0706011910003.Adapter.MyAdapter;
@@ -68,5 +70,31 @@ import java.util.ArrayList;
             intent.putExtra("mContact", position);
             startActivity(intent);
             finish();
+        }
+        public boolean doublebackToExitPressedOnce = false;
+        @Override
+        protected void onResume(){
+            super.onResume();
+            this.doublebackToExitPressedOnce = false;
+        }
+
+        @Override
+        public void onBackPressed() {
+            if (doublebackToExitPressedOnce) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                finish();
+                startActivity(intent);
+            }
+            this.doublebackToExitPressedOnce = true;
+            Toast.makeText(MainActivity.this, "Press back once again to exit the apps!", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doublebackToExitPressedOnce = false;
+                }
+            }, 5000);
         }
     }

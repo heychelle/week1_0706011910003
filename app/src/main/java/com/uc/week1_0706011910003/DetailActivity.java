@@ -46,6 +46,8 @@ public class DetailActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent (DetailActivity.this, MainActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
@@ -90,6 +92,7 @@ public class DetailActivity extends AppCompatActivity {
                 intent.putExtra("mContact","detail");
                 intent.putExtra("position",con);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -144,11 +147,33 @@ public class DetailActivity extends AppCompatActivity {
         builder.setMessage("Are you sure to delete " + mContacts.get(con).getName() + " data?")
                 .setPositiveButton("Yes", dialogClickListener)
                 .setNegativeButton("No", dialogClickListener).show();
-
-
-
+    }
+    public boolean doublebackToExitPressedOnce = false;
+    @Override
+    protected void onResume(){
+        super.onResume();
+        this.doublebackToExitPressedOnce = false;
     }
 
+    @Override
+    public void onBackPressed() {
+        if (doublebackToExitPressedOnce) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            finish();
+            startActivity(intent);
+        }
+        this.doublebackToExitPressedOnce = true;
+        Toast.makeText(this, "Press back once again to exit the apps!", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doublebackToExitPressedOnce = false;
+            }
+        }, 5000);
+    }
 
 
 }
