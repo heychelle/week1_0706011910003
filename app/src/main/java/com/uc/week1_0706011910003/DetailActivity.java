@@ -83,8 +83,8 @@ public class DetailActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(DetailActivity.this, "bom",
-                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(DetailActivity.this, "bom",
+//                        Toast.LENGTH_LONG).show();
                 // TODO Auto-generated method stub
                 Intent intent = new Intent (DetailActivity.this, AddUserActivity.class);
                 intent.putExtra("mContact","detail");
