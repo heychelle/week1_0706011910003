@@ -68,9 +68,11 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
             TextInputLayout set_name = (TextInputLayout) findViewById(R.id.input_name);
             set_name.getEditText().setText(mContacts.get(daftar).getName());
 
-
             TextInputLayout set_age = (TextInputLayout) findViewById(R.id.input_age);
             set_age.getEditText().setText(mContacts.get(daftar).getAge());
+            String txt = " years old";
+//            age = age.replaceAll("\\D+","");
+//            input_age.setText(age);
 
             TextInputLayout set_address = (TextInputLayout) findViewById(R.id.input_address);
             set_address.getEditText().setText(mContacts.get(daftar).getAddress());
@@ -80,7 +82,7 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
             @Override
             public void onClick(View v) {
                 if (con.equalsIgnoreCase("main")) {
-                    final User contact = new User(name, address, age + " years old");
+                    final User contact = new User(name, address, age);
 
                     UserData.saveList.add(contact);
 

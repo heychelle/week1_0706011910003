@@ -11,4 +11,5 @@
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
     <string name="nodata">No Data</string>
+    <string name="yearsold">years old</string>
 </resources>
