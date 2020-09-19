@@ -100,16 +100,6 @@
                 app:layout_constraintTop_toTopOf="@+id/view"
                 app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
-            <ImageView
-                android:id="@+id/linee"
-                android:layout_width="0dp"
-                android:layout_height="4dp"
-                app:layout_constraintBottom_toTopOf="@+id/view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="#634D3C" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
