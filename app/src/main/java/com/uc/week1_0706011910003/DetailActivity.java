@@ -66,7 +66,7 @@ public class DetailActivity extends AppCompatActivity {
         set_age.setText(mContacts.get(con).getAge());
 
         TextView set_address = (TextView) findViewById(R.id.view_address);
-        set_address.setText(mContacts.get(con).getName());
+        set_address.setText(mContacts.get(con).getAddress());
 
         button_delete = findViewById(R.id.button_delete);
 
